@@ -16,8 +16,8 @@ const game = {
   timer: null
 };
 game.bgm1.loop = true;
-game.bgm1.volume = 0.2;
-game.bgm2.volume = 0.2;
+game.bgm1.volume = 0;
+game.bgm2.volume = 0;
 
 // 複数画像読み込み
 let imageLoadCounter = 0;
@@ -238,4 +238,5 @@ document.onkeydown = function (e) {
   }
 
 };
+
 
