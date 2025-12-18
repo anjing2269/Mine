@@ -57,7 +57,8 @@ function start() {
   game.state = 'gaming';
   createDino();
   game.bgm1.play();
-  // game.bgm1.volume = 1.0;
+  console.log(game.bgm1.volume);
+  console.log(game.bgm1.muted);
   game.timer = setInterval(ticker, 30);
 }
 
@@ -238,6 +239,7 @@ document.onkeydown = function (e) {
   }
 
 };
+
 
 
 
