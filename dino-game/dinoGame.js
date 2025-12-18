@@ -16,8 +16,6 @@ const game = {
   timer: null
 };
 game.bgm1.loop = true;
-game.bgm1.volume = 0.0;
-game.bgm2.volume = 0.0;
 
 // 複数画像読み込み
 let imageLoadCounter = 0;
@@ -59,7 +57,7 @@ function start() {
   game.state = 'gaming';
   createDino();
   game.bgm1.play();
-  game.bgm1.volume = 0.0;
+  game.bgm1.volume = 0.5;
   game.timer = setInterval(ticker, 30);
 }
 
@@ -233,12 +231,14 @@ document.onkeydown = function (e) {
   if (e.code === 'Space' && game.dino.moveY === 0 && game.state === 'gaming') {
     game.dino.moveY = -41;
     game.bgm2.play();
+    game.bgm2.volume = 0.5;
   }
   if (e.code === 'Enter' && game.state === 'gameover') {
     start();
   }
 
 };
+
 
 
 
