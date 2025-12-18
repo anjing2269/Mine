@@ -47,7 +47,7 @@ function init() {
   // 文章の表示
   ctx.fillStyle = 'black';
   ctx.font = 'bold 60px serif';
-  ctx.fillText(`Press Enter key`, 60, 150);
+  ctx.fillText(`Press "Enter" key`, 60, 150);
   ctx.fillText(`to start.`, 150, 230);
 }
 
@@ -221,6 +221,8 @@ function hitCheck() {
       ctx.fillStyle = 'black';
       ctx.font = 'bold 100px serif';
       ctx.fillText(`Game Over!`, 150, 200);
+      ctx.font = 'bold 60px serif';
+      ctx.fillText(`"Enter" to restart`, 270, 200);
       clearInterval(game.timer);
     }
   }
@@ -240,6 +242,7 @@ document.onkeydown = function (e) {
   }
 
 };
+
 
 
 
