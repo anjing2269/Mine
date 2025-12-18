@@ -59,6 +59,7 @@ function start() {
   game.state = 'gaming';
   createDino();
   game.bgm1.play();
+  game.bgm1.volume = 0.0;
   game.timer = setInterval(ticker, 30);
 }
 
@@ -238,6 +239,7 @@ document.onkeydown = function (e) {
   }
 
 };
+
 
 
 
