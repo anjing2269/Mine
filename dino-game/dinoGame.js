@@ -221,8 +221,8 @@ function hitCheck() {
       ctx.fillStyle = 'black';
       ctx.font = 'bold 100px serif';
       ctx.fillText(`Game Over!`, 150, 200);
-      ctx.font = 'bold 60px serif';
-      ctx.fillText(`"Enter" to restart`, 270, 200);
+      ctx.font = 'bold 40px serif';
+      ctx.fillText(`"Enter" to restart`, 270, 300);
       clearInterval(game.timer);
     }
   }
@@ -235,22 +235,9 @@ document.onkeydown = function (e) {
   if (e.code === 'Space' && game.dino.moveY === 0 && game.state === 'gaming') {
     game.dino.moveY = -41;
     game.bgm2.play();
-    console.log(`効果音の音量　${game.bgm2.volume}`);
+    console.log(`効果音の音量 ${game.bgm2.volume}`);
   }
   if (e.code === 'Enter' && game.state === 'gameover') {
     start();
   }
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
