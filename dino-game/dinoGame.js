@@ -16,6 +16,8 @@ const game = {
   timer: null
 };
 game.bgm1.loop = true;
+game.bgm1.volume = 0.5;
+game.bgm2.volume = 0.5;
 
 // 複数画像読み込み
 let imageLoadCounter = 0;
@@ -234,4 +236,5 @@ document.onkeydown = function (e) {
   if (e.code === 'Enter' && game.state === 'gameover') {
     start();
   }
+
 };
