@@ -1,9 +1,10 @@
 'use strict'; // 厳格モードを使用
 
 // 各種入力の取得
-const textInput = document.getElementById('inputText');
-const shiftInput = document.getElementById('inputShift');
-const convertButton = document.getElementById('convert');
+const formInput = document.getElementById('form');
+const textInput = document.getElementById('text');
+const shiftInput = document.getElementById('shift');
+const convertButton = document.getElementById('convert-button');
 const resultDivision = document.getElementById('result-area');
 
 const caesarCipherObj = {
@@ -100,14 +101,14 @@ const caesarCipherObj = {
   },
 }
 
-convertButton.addEventListener(
-  'click',
-  () => {
+convertButton.addEventListener('click', showResults);
+
+function showResults() {
+  const validation = formInput.reportValidity();
+
+  if (validation) {
     const text = textInput.value;
-    const shift = shiftInput.valueAsNumber;
-    if (text.length === 0 || !shift) {
-      return;
-    }
+    const shift = shiftInput.valueAsNumber
 
     // 変換結果表示エリアの作成
     {
@@ -126,7 +127,7 @@ convertButton.addEventListener(
       { // textarea の作成
         const textarea = document.createElement('textarea');
         textarea.setAttribute('class', 'form-control');
-        textarea.setAttribute('id', 'resultText');
+        textarea.setAttribute('id', 'result-text');
         textarea.setAttribute('rows', 5);
         textarea.setAttribute('readonly', 'readonly');
         const result = caesarCipherObj.caesarCipher(text, shift);
@@ -138,7 +139,7 @@ convertButton.addEventListener(
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.setAttribute('class', 'btn btn-outline-primary btn-sm');
-        button.setAttribute('id', 'copyButton');
+        button.setAttribute('id', 'copy-button');
         button.innerText = 'テキストをコピー';
         bodyDivision.appendChild(button);
       }
@@ -154,10 +155,10 @@ convertButton.addEventListener(
 
     // コピーボタンのスクリプトを追加
     const script = document.createElement('script');
-    script.setAttribute('src', 'copyButton.js');
-    document.body.appendChild(script);
+    script.setAttribute('src', 'copy-button.js');
+    resultDivision.appendChild(script);
   }
-);
+}
 
 function test() {
   console.log('変換のテスト');

@@ -20,33 +20,35 @@
     </nav>
   </header>
 
-  <div class="container pt-5">
-    <label for="inputText" class="form-label h5">変換したい文章を入力してください</label>
-    <textarea class="form-control" id="inputText" rows="5"></textarea>
-    <div class="form-text">
-      アルファベット以外の文字・記号は無視されます
+  <form class="container" id="form">
+    <div class="pt-5">
+      <label for="text" class="form-label h5">変換したい文章を入力してください</label>
+      <textarea id="text" class="form-control" rows="5" required></textarea>
+      <div class="form-text">アルファベット以外の文字・記号は無視されます</div>
     </div>
-  </div>
 
-  <div class="container pt-3">
-    <div class="row">
-      <div class="col-auto">
-        <label for="inputShift" class="col-form-label h6">シフト数</label>
+    <div class="pt-3">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="shift" class="form-label h6">シフト数</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="shift" class="form-control" style="width: 100px;" required>
+        </div>
       </div>
-      <div class="col-auto">
-        <input type="number" id="inputShift" class="form-control" style="width: 100px;">
+    </div>
+
+    <div class="pt-5">
+      <div class="d-grid col-4 mx-auto">
+        <button type="button" class="btn btn-primary" id="convert-button">変換する</button>
       </div>
     </div>
-  </div>
+  </form>
 
-  <div class="container pt-5">
-    <div class="d-grid col-4 mx-auto">
-      <button type="button" class="btn btn-primary text-nowrap" id="convert">変換する</button>
+  <div class="container">
+    <div class="pt-5">
+      <div id="result-area"></div>
     </div>
-  </div>
-
-  <div class="container pt-5">
-    <div id="result-area"></div>
   </div>
 
   <script src="caesar-cipher.js"></script>
