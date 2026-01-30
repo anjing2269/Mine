@@ -1,26 +1,27 @@
 'use strict';
 
-(() => {
-  const copyButton = document.getElementById('copy-button');
-  const copyTargetInput = document.getElementById('result-text');
+document.addEventListener('click', copyToClipboard);
 
-  copyButton.addEventListener('click', copyToClipboard);
+function copyToClipboard(event) {
+  const element = event.target;
+  const id = element.id;
 
-  function copyToClipboard() {
-    const copyTarget = copyTargetInput.value;
+  if (id === 'copy-button') {
+    const textareaElement = document.getElementById('result-text');
+    const copyTarget = textareaElement.value;
 
     navigator.clipboard.writeText(copyTarget).then(
       () => {
-        copyButton.innerText = 'コピーしました';
-        setTimeout(copyTimer, 2000);
+        element.innerText = 'コピーしました';
+        setTimeout(resetButtonText, 2000, element);
       },
       () => {
         console.log('コピーに失敗しました');
       }
     );
   }
+}
 
-  function copyTimer() {
-    copyButton.innerText = 'テキストをコピー';
-  }
-})();
+function resetButtonText(element) {
+  element.innerText = 'テキストをコピー';
+}
