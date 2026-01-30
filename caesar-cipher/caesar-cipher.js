@@ -64,12 +64,6 @@ const caesarCipherObj = {
     }
     const resultText = texts.map((text) => text.resultChar).join('');
 
-    /*
-    console.groupCollapsed('変換ログ');
-    console.table(texts);
-    console.groupEnd();
-    */
-
     const result = resultText;
     return result;
   },
@@ -152,11 +146,6 @@ function showResults() {
       resultDivision.appendChild(headerDivision);
       resultDivision.appendChild(bodyDivision);
     }
-
-    // コピーボタンのスクリプトを追加
-    const script = document.createElement('script');
-    script.setAttribute('src', 'copy-button.js');
-    resultDivision.appendChild(script);
   }
 }
 
