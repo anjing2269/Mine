@@ -59,7 +59,6 @@ function start() {
   game.state = 'gaming';
   createDino();
   game.bgm1.play();
-  console.log(`bgmの音量 ${game.bgm1.volume}`);
   game.timer = setInterval(ticker, 30);
 }
 
@@ -235,7 +234,6 @@ document.onkeydown = function (e) {
   if (e.code === 'Space' && game.dino.moveY === 0 && game.state === 'gaming') {
     game.dino.moveY = -41;
     game.bgm2.play();
-    console.log(`効果音の音量 ${game.bgm2.volume}`);
   }
   if (e.code === 'Enter' && game.state === 'gameover') {
     start();
